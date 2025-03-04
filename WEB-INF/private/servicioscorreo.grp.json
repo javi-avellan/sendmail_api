@@ -1,0 +1,17 @@
+{
+"ObjectType":"ServiceGroup",
+"Name":"ServiciosCorreo",
+"BasePath":"ServiciosCorreo",
+"Mappings":
+[
+{
+"Verb":"POST",
+"Name":"sendmail",
+"Bodystyle":"Wrapped",
+"VariableAlias": [],
+"ServiceMethod":"gxep_sendmail",
+"Implementation":"EnvioCorreo",
+"PathRegexp":"sendmail",
+"Path":"sendmail"
+
+}]}

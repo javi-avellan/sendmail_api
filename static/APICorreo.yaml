@@ -1,0 +1,94 @@
+openapi: 3.0.0
+info:
+  title: "APICorreo"
+  description: "Para enviar correo con Tls13"
+  version: "20250211181827"
+servers:
+  - url: http://localhost:8080/CorreoJava/APICorreo
+paths:
+  /SendMail:
+    post:
+      tags:
+        - APICorreo  
+      operationId: "APICorreo.SendMail"
+      summary: "SendMail"
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SendMailInput"
+      
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                type: "string"
+
+
+        404:
+          description: "Not found"
+
+components:
+  schemas:
+    SendMailInput:
+      properties:
+        SDTCorreo:
+          description: "SDTCorreo"
+          $ref: "#/components/schemas/SDTCorreo"
+  
+    SDTCorreo:
+      properties:
+        servidor:
+          description: "servidor"
+          type: "string"
+        puerto:
+          description: "puerto"
+          type: "integer"
+          format: "int32"
+        sendername:
+          description: "sendername"
+          type: "string"
+        senderaddress:
+          description: "senderaddress"
+          type: "string"
+        authentication:
+          description: "authentication"
+          type: "integer"
+          format: "int32"
+        secure:
+          description: "secure"
+          type: "integer"
+          format: "int32"
+        username:
+          description: "username"
+          type: "string"
+        password:
+          description: "password"
+          type: "string"
+        asunto:
+          description: "asunto"
+          type: "string"
+        texto:
+          description: "texto"
+          type: "string"
+
+        Correos:
+          type: array
+          items:
+            description: CorreosItem
+            $ref: "#/components/schemas/SDTCorreo.Correos_CorreosItem"
+
+
+    SDTCorreo.Correos_CorreosItem:
+      properties:
+        email:
+          description: "email"
+          type: "string"
+
+
+      x-gx-level: "SDTCorreo"
+
+ 

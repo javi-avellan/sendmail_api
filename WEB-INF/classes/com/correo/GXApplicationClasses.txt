@@ -1,0 +1,4 @@
+com.correo.apicorreo_services_rest
+com.correo.servicioscorreo_services_rest
+com.correo.apicorreo_client_rest
+com.correo.servicioscorreo_client_rest

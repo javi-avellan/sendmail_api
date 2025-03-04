@@ -1,0 +1,2 @@
+[Client]
+CORS_ALLOW_ORIGIN=gx-file://.

@@ -1,0 +1,79 @@
+openapi: 3.0.0
+info:
+  title: "Correo"
+  version: "20250213164522"
+servers:
+  - url: http://localhost:8080/CorreoJava/rest
+paths:
+components:
+  schemas:
+  
+    SDTCorreo:
+      properties:
+        servidor:
+          description: "servidor"
+          type: "string"
+        puerto:
+          description: "puerto"
+          type: "integer"
+          format: "int32"
+        sendername:
+          description: "sendername"
+          type: "string"
+        senderaddress:
+          description: "senderaddress"
+          type: "string"
+        authentication:
+          description: "authentication"
+          type: "integer"
+          format: "int32"
+        secure:
+          description: "secure"
+          type: "integer"
+          format: "int32"
+        username:
+          description: "username"
+          type: "string"
+        password:
+          description: "password"
+          type: "string"
+        asunto:
+          description: "asunto"
+          type: "string"
+        texto:
+          description: "texto"
+          type: "string"
+
+        Correos:
+          type: array
+          items:
+            description: CorreosItem
+            $ref: "#/components/schemas/SDTCorreo.Correos_CorreosItem"
+
+        Adjuntos:
+          type: array
+          items:
+            description: AdjuntosItem
+            $ref: "#/components/schemas/SDTCorreo.Adjuntos_AdjuntosItem"
+
+
+    SDTCorreo.Correos_CorreosItem:
+      properties:
+        email:
+          description: "email"
+          type: "string"
+
+
+      x-gx-level: "SDTCorreo"
+
+
+    SDTCorreo.Adjuntos_AdjuntosItem:
+      properties:
+        archivo:
+          description: "archivo"
+          type: "string"
+
+
+      x-gx-level: "SDTCorreo"
+
+ 

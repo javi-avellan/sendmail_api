@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+   <Properties>    	
+	<Property name="logBaseDir">${main:0:-.}${sys:file.separator}logs${sys:file.separator}</Property>
+	
+	<Property name="logFile">${logBaseDir}client.log</Property>
+  </Properties>
+
+  <Appenders>
+	<RollingFile name="RollingFile" fileName="${logFile}" filePattern="${logBaseDir}old${sys:file.separator}app-%d{yyyy-MM-dd-HH}-%i.log.gz"> 
+		<PatternLayout pattern="%d{ISO8601} [%t] %-5p %c - %m%n"/>
+	
+		<Policies>
+			<TimeBasedTriggeringPolicy />
+			<SizeBasedTriggeringPolicy size="10 MB"/>
+		</Policies>
+	</RollingFile>
+
+	<Console name="ConsoleAppender" target="SYSTEM_OUT">
+		<PatternLayout pattern="%d{ISO8601} [%t] %-5p %c - %m%n"/>
+	
+	</Console>
+	
+  </Appenders>
+
+  <Loggers>
+    <Root level="${env:GX_LOG_LEVEL:-OFF}">
+      <AppenderRef ref="${env:GX_LOG_OUTPUT:-RollingFile}"/>
+    </Root>
+	<logger name="com.genexus" level="${env:GX_LOG_LEVEL:-OFF}" additivity="false">
+		<AppenderRef ref="${env:GX_LOG_OUTPUT:-RollingFile}"/>
+	</logger>
+	<!-- User custom Logging !-->
+	<logger name="GeneXusUserLog" level="${env:GX_LOG_LEVEL_USER:-ERROR}" additivity="false">
+		<AppenderRef ref="${env:GX_LOG_OUTPUT:-RollingFile}"/>
+	</logger>	
+    
+  </Loggers>
+</Configuration>

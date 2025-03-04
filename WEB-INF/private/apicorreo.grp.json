@@ -1,0 +1,17 @@
+{
+"ObjectType":"ServiceGroup",
+"Name":"APICorreo",
+"BasePath":"APICorreo",
+"Mappings":
+[
+{
+"Verb":"POST",
+"Name":"sendmail",
+"Bodystyle":"Wrapped",
+"VariableAlias": [],
+"ServiceMethod":"gxep_sendmail",
+"Implementation":"EnvioCorreo",
+"PathRegexp":"sendmail",
+"Path":"sendmail"
+
+}]}
